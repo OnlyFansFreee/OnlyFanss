@@ -1,0 +1,240 @@
+/* Обнуление стилей для всех элементов */
+* {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  box-sizing: border-box;
+}
+
+/* Ограничение ширины изображений */
+img {
+  max-width: 100%;
+}
+
+/* Стили для всего тела страницы */
+body {
+  font: 30px 'Jost', 'Arial', sans-serif;
+  line-height: normal;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  background: #111;
+  min-height: 100%;
+  width: 100%;
+  font-weight: 400;
+  letter-spacing: 0.75px;
+}
+
+/* Основной контейнер */
+.wrap {
+  min-width: 320px;
+  position: relative;
+}
+
+/* Центрирование основного контента */
+.wrap-center {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* Контейнер для героя */
+.hero {
+  position: relative;
+  background-color: #000;
+  overflow: hidden;
+}
+
+/* Внутренний контейнер героя */
+.hero-in {
+  min-height: 100vh;
+  padding: 38px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Подложка для героя и фонового изображения */
+.hero::after,
+.hero-bg,
+.works::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 0%, #000 100%);
+}
+
+/* Подложка для героя */
+.hero::after {
+  opacity: 0.6;
+  z-index: 5;
+}
+
+/* Фоновое изображение героя */
+.hero-bg {
+  background: url(../images/bg01.jpg) right top no-repeat;
+  z-index: 3;
+  animation: bgzoom 20s linear infinite;
+  background-size: cover;
+  opacity: 0.7; /* Пример добавления прозрачности */
+  background-position: center center; /* Изменяем положение фоновой картинки */
+}
+
+/* Анимация увеличения фонового изображения героя */
+@keyframes bgzoom {
+  0% {
+    transform: scale(1, 1);
+    transform-origin: right center;
+  }
+  50% {
+    transform: scale(1.15, 1.15);
+    transform-origin: right center;
+  }
+  100% {
+    transform: scale(1, 1);
+    transform-origin: right center;
+  }
+}
+
+/* Логотип */
+.logo {
+  font-size: 45px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Социальные кнопки */
+.social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 45px;
+}
+
+.social-btn {
+  display: inline-block;
+  margin: 15px 0;
+  color: #fff !important;
+  text-decoration: none;
+  height: 70px;
+  line-height: 70px;
+  border-radius: 36px;
+  padding-left: 45px;
+  width: 330px;
+  transition: all .3s ease-in-out;
+  overflow: hidden;
+  position: relative;
+}
+
+.social-btn img {
+  margin-right: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
+  border-radius: 1%;
+  padding: 15px;
+}
+
+.social-btn:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* Кнопка для работ */
+.works-btn {
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* Подпись для работ */
+.works-caption {
+  font-size: 22.5px;
+  font-weight: 300;
+}
+
+/* Список работ */
+.works-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+/* Элемент работы */
+.works-item {
+  margin: 30px;
+}
+
+/* Изображение работы */
+.works-item img {
+  width: 480px;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 767px) {
+  /* Переопределение стилей для социальных кнопок при наведении на мобильных устройствах */
+  .social-btn {
+    transition: background-color 0.3s ease-in-out, padding-left 0.3s ease-in-out, padding-right 0.3s ease-in-out;
+  }
+  
+  .social-btn:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+/* Анимация пульсации для кнопок OnlyFans и Fansly */
+@keyframes pulse {
+  0% {
+    background-color: rgba(255, 192, 203, 1); /* Розовый цвет */
+  }
+  50% {
+    background-color: rgba(255, 192, 203, 0.5); /* Полупрозрачный розовый */
+  }
+  100% {
+    background-color: rgba(255, 192, 203, 1); /* Розовый цвет */
+  }
+}
+
+/* Стили для кнопки OnlyFans */
+.social-btn.onlyfans {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Стили для кнопки Fansly */
+.social-btn.fansly {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Перекрывающий слой */
+.overlay {
+  position: fixed;
+  top: calc(50% - 5px);
+  left: calc(50% + 155px);
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 70px;
+  height: 35px;
+  background-color: red;
+  border-radius: 10px;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,17 @@
+.overlay {
+  position: absolute;
+  z-index: 9999;
+}
+
+.badge {
+  background-color: red;
+  color: #fff;
+  font-size: 22px; /* Увеличение размера текста */
+  font-weight: bold; /* Жирный шрифт */
+  padding: 6px 10px; /* Немного больше отступов */
+  border-radius: 20px;
+}
+
+.content {
+  position: relative;
+}
